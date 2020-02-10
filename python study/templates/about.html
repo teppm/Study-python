@@ -7,28 +7,30 @@
 
 
 </p>
+
+{% for member in company %}
 <div class="row featurette">
+    {% if loop.index %2 != 0 %}
     <div class="col-md-7">
-        <h3>Thorin Oakenshield</h3>
+        <h3> {{loop.index}} {{ member.name }} </h3>
         <p>
-            Thorin II, also called the Oakenshield, King under the Mountain or the Mountain King,[1] was the son of Thráin II, the older brother of Frerin and Dís, the grandson of King Thrór and the uncle of Fíli and Kíli. Thorin was best known for his deeds as leader
-            of a company that infiltrated the lost Kingdom under the Mountain to take it back from Smaug and for leading an alliance of Men, Dwarves, and Elves in the Battle of the Five Armies.
+            {{ member.description }}
         </p>
     </div>
     <div class="col-md-5">
-        <img src="https://upload.wikimedia.org/wikipedia/en/e/ed/Thorin%2C_from_the_Hobbit.jpg" alt="Thorin Oakenshield">
+        <img class="featurette-image img-reponsive" src="{{ member.image_source }}">
     </div>
-</div>
-<div class="row featurette">
+    {% else %}
     <div class="col-md-5">
-        <img src="https://vignette.wikia.nocookie.net/lotr/images/b/b4/The-Hobbit-Fili-and-Kili.jpg/revision/latest?cb=20110714202952" alt="Fili and Kili">
+        <img class="featurette-image img-reponsive" src="{{ member.image_source }}">
     </div>
     <div class="col-md-7">
-        <h3>Fili and Kili</h3>
+        <h3> {{loop.index}} {{ member.name }} </h3>
         <p>
-            Fíli and Kíli were brothers, the youngest of the thirteen dwarves who set out on Thorin Oakenshield's quest along with Gandalf and Bilbo Baggins to reclaim the Lonely Mountain for the Dwarves. Fíli and Kíli were the two most active dwarves of Thorin's
-            company, and apart from Balin, and possibly Bombur, they appeared more frequently as "individual" characters in Tolkien's novel than the rest of Thorin's companions, who were most often named only in "group" references to the entire company.
+            {{ member.description }}
         </p>
     </div>
+    {% endif %}
 </div>
-{% endblock %}
+{% if loop.index != 13 %}
+<hr class="featurette-divider"> {% endif %} {% endfor %} {% endblock %}
