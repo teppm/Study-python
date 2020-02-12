@@ -6,7 +6,7 @@
     "terminal.integrated.env.windows" : {
         "DEV": "1",
         "FLASK_DEBUG": "1",
-        "
+        
     }
 
 }
